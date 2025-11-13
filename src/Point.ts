@@ -10,6 +10,11 @@ export default class Point implements Geometry {
     this.coordinate = coordinate || [];
   }
 
+  clone(): Point{
+    return new Point ([... this.coordinate])  
+    
+  }
+  
   translate(dx: number, dy: number) {
     if (this.isEmpty()) {
       return;

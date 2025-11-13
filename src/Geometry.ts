@@ -4,5 +4,7 @@ export  default interface Geometry {
     isEmpty(): boolean;
 
     translate(dx: number, dy: number);
+    
+    clone(): Geometry;
 
 }

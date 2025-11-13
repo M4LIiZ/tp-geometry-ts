@@ -21,7 +21,7 @@ describe("test LineString", () => {
         expect(r.isEmpty()).to.equal(false);
     });
 
-        it("should translate points", () => {
+        it("test should translate points", () => {
             const p = new Point ([3.0,4.0]);
             const q = new Point([0.0,0.0]);
             const r = new LineString([p,q]);
@@ -31,12 +31,40 @@ describe("test LineString", () => {
             expect(r.getPointN(1)).to.equal(q);   
         });
     
-        it("should not translate points", () =>{
+        it("test default should translate points", () =>{
             const r  = new LineString();
             r.translate(5.0, 1.0)
             expect(r.isEmpty()).to.equal(true);
-        })
-    
+        });
+
+        it("test should copy", () => {
+                const p = new Point ([3.0,4.0]);
+                const q = new Point ([1.0,3.0]);
+
+                const pClone = p.clone();
+                const qClone = q.clone();
+
+                p.translate(1.0, 3.0);
+                q.translate(1.0, 3.0);
+
+                expect(pClone.getCoordinate()).to.deep.equal([3.0,4.0]);
+                expect(qClone.getCoordinate()).to.deep.equal([1.0,3.0]);
+            });
+        
+            it("test default should copy", () => {
+                const p = new Point();
+                const q = new Point();
+
+                const pClone = p.clone();
+                const qClone = q.clone();
+
+                expect(pClone.isEmpty()).to.equal(true);
+                expect(qClone.isEmpty()).to.equal(true);
+                expect(pClone.getCoordinate()).to.deep.equal([]);
+                expect(qClone.getCoordinate()).to.deep.equal([]);
+        
+            });
+
 
 
 });
