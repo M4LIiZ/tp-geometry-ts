@@ -14,8 +14,8 @@ describe("test LineString", () => {
         const q = new Point([0.0,0.0]);
         const r = new LineString([p,q]);
         expect(r.getNumPoints()).to.equal(2);
-        expect(r.getPointN(0)).to.equal(q);
-        expect(r.getPointN).to.equal(r);
+        expect(r.getPointN(0)).to.equal(p);
+        expect(r.getPointN(1)).to.equal(q);
     });
 });
 
