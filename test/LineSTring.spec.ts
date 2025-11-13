@@ -20,5 +20,24 @@ describe("test LineString", () => {
         expect(r.getPointN(1)).to.equal(q);
         expect(r.isEmpty()).to.equal(false);
     });
+
+        it("should translate points", () => {
+            const p = new Point ([3.0,4.0]);
+            const q = new Point([0.0,0.0]);
+            const r = new LineString([p,q]);
+            p.translate(1.0, 3.0);
+            q.translate(2.0, 5.0);
+            expect(r.getPointN(0)).to.equal(p);
+            expect(r.getPointN(1)).to.equal(q);   
+        });
+    
+        it("should not translate points", () =>{
+            const r  = new LineString();
+            r.translate(5.0, 1.0)
+            expect(r.isEmpty()).to.equal(true);
+        })
+    
+
+
 });
 

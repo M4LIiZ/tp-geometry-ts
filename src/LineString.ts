@@ -5,23 +5,30 @@ export default class LineString implements Geometry {
     private points: Point[];
 
     constructor(points?: Point[]) {
-    this.points = points || [];
-  }
-  
-  isEmpty(): boolean {
-      return this.points.length == 0;
-  }
+        this.points = points || [];
+    }
 
-  getNumPoints(): number{
-    return this.points ? this.points.length: 0;
-  }
+    translate(dx: number, dy: number) {
+        for (let point of this.points) {
+            point.translate(dx, dy);
+        }
+    }
 
-  getType(): string {
-    return "LineString";
-  }
-  getPointN (n: number): Point{
-    return this.points[n];
-  }
-  
+
+    isEmpty(): boolean {
+        return this.points.length == 0;
+    }
+
+    getNumPoints(): number {
+        return this.points ? this.points.length : 0;
+    }
+
+    getType(): string {
+        return "LineString";
+    }
+    getPointN(n: number): Point {
+        return this.points[n];
+    }
+
 
 }
