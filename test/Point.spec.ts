@@ -2,6 +2,7 @@ import "mocha";
 import { expect } from "chai";
 import Point from "../src/Point";
 
+
 describe("test Point", () => {
     it("test default constructor", () => {
         const p = new Point();
@@ -46,6 +47,19 @@ describe("test Point", () => {
         expect(pClone.getCoordinate()).to.deep.equal([]);
 
     });
+
+    it("test should create enveloppe of 1 point", () => {
+            const p = new Point([3.0, 4.0]);
+            const env = p.getEnveloppe();
+            expect(env.getXmin()).to.equal(3);
+            expect(env.getXmax()).to.equal(3);
+            expect(env.getYmin()).to.equal(4);
+            expect(env.getYmax()).to.equal(4);
+            
+        });
+    
+
+
 
     
 

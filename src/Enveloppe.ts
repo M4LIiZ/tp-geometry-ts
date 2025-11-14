@@ -1,15 +1,16 @@
 import Coordinate from "./Coordinate"
 
-export  default class Enveloppe {
+
+export default class Enveloppe {
     private bottomLeft: Coordinate
     private topRight: Coordinate
 
-    constructor (bottomLeft?: Coordinate, topRight?: Coordinate){
+    constructor(bottomLeft?: Coordinate, topRight?: Coordinate) {
         this.bottomLeft = bottomLeft;
         this.topRight = topRight;
     }
 
-    isEmpty(): boolean{
+    isEmpty(): boolean {
         return this.bottomLeft == undefined || this.topRight == undefined;
     }
 
@@ -32,8 +33,8 @@ export  default class Enveloppe {
 
     }
 
-    toString(): string{
-        return "Coordonnées de bottomLeft: " + this.bottomLeft + " et " + "Coordonnées de topRight: " + this.topRight; 
+    toString(): string {
+        return "Coordonnées de bottomLeft: " + this.bottomLeft + " et " + "Coordonnées de topRight: " + this.topRight;
     }
 
 

@@ -1,11 +1,21 @@
 import Point from "./Point";
 import Geometry from "./Geometry";
+import Enveloppe from "./Enveloppe"
+import EnveloppeBuilder from "./EnveloppeBuilder";
 
 export default class LineString implements Geometry {
     private points: Point[];
 
     constructor(points?: Point[]) {
         this.points = points || [];
+    }
+
+    getEnveloppe(): Enveloppe{
+        let builder = new EnveloppeBuilder();
+        for (let point of this.points){
+            builder.insert(point.getCoordinate());
+        }
+        return builder.build();
     }
 
     clone(): LineString{

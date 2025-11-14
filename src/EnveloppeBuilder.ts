@@ -1,6 +1,7 @@
 import Coordinate from "./Coordinate"
 import Enveloppe from "./Enveloppe"
 
+
 export default class EnveloppeBuilder {
 
     coordsList: Coordinate[] = [];
@@ -12,7 +13,7 @@ export default class EnveloppeBuilder {
     }
 
     build(): Enveloppe {
-        if (this.coordsList.length == 0){
+        if (this.coordsList.length == 0) {
             return new Enveloppe();
         }
 
@@ -34,7 +35,7 @@ export default class EnveloppeBuilder {
             if (yMax < currY) {
                 yMax = currY;
             }
-        
+
 
 
         } return new Enveloppe([xMin, yMin], [xMax, yMax]);

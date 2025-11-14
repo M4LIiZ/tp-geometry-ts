@@ -1,5 +1,6 @@
 import Coordinate from "./Coordinate";
-
+import Enveloppe from "./Enveloppe"
+import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
 
 
@@ -10,16 +11,23 @@ export default class Point implements Geometry {
     this.coordinate = coordinate || [];
   }
 
-  clone(): Point{
-    return new Point ([... this.coordinate])  
-    
+  getEnveloppe(): Enveloppe {
+    let pointsBuilder = new EnveloppeBuilder();
+    pointsBuilder.insert(this.getCoordinate());
+
+    return pointsBuilder.build();
   }
-  
+
+  clone(): Point {
+    return new Point([... this.coordinate])
+
+  }
+
   translate(dx: number, dy: number) {
     if (this.isEmpty()) {
       return;
     }
-  
+
     this.coordinate[0] += dx;
     this.coordinate[1] += dy;
   }
