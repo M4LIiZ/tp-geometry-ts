@@ -5,6 +5,7 @@ import Geometry from "./Geometry";
 
 
 export default class Point implements Geometry {
+  [x: string]: any;
   private coordinate?: Coordinate;
 
   constructor(coordinate?: Coordinate) {
