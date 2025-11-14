@@ -15,6 +15,7 @@ describe("test LineString", () => {
         const p = new Point([3.0,4.0]);
         const q = new Point([0.0,0.0]);
         const r = new LineString([p,q]);
+
         expect(r.getNumPoints()).to.equal(2);
         expect(r.getPointN(0)).to.equal(p);
         expect(r.getPointN(1)).to.equal(q);
@@ -30,6 +31,7 @@ describe("test LineString", () => {
             expect(r.getPointN(0)).to.equal(p);
             expect(r.getPointN(1)).to.equal(q);   
         });
+
     
         it("test default should translate points", () =>{
             const r  = new LineString();
@@ -60,6 +62,7 @@ describe("test LineString", () => {
 
                 expect(pClone.isEmpty()).to.equal(true);
                 expect(qClone.isEmpty()).to.equal(true);
+
                 expect(pClone.getCoordinate()).to.deep.equal([]);
                 expect(qClone.getCoordinate()).to.deep.equal([]);
         
