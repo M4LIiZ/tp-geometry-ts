@@ -2,6 +2,7 @@ import Coordinate from "./Coordinate";
 import Enveloppe from "./Enveloppe"
 import EnveloppeBuilder from "./EnveloppeBuilder";
 import Geometry from "./Geometry";
+import GeometryVisitor from "./GeometryVisitor";
 
 
 export default class Point implements Geometry {
@@ -52,6 +53,10 @@ export default class Point implements Geometry {
 
   y(): number {
     return this.coordinate.length > 1 ? this.coordinate[1] : Number.NaN;
+  }
+
+  accept(visitor: GeometryVisitor){
+    visitor.visitPoint(this);    
   }
 
 }
